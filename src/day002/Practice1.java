@@ -1,5 +1,7 @@
 package day002; // 현재 클래스가 위치한 폴더(패키지)명
 
+import java.util.Scanner;
+
 public class Practice1 { //class start
     // m + enter, ,자바 실행은 main함수(스레드)로 부터 (실행)흐름 시작된다.
     public static void main(String[] args) { // main start (메인 함수부터 실행된다.)
@@ -58,7 +60,69 @@ public class Practice1 { //class start
         System.out.printf("%-3s %-5s %-10s \n", num, writer, content);      // %-3s: 왼쪽 정렬
         System.out.println("===============================\n");
 
+        /* 문제 8: Scanner를 이용하여 사용자의 이름(String)과 나이(int)를 입력받아,
+                  "OOO님의 나이는 OO세 입니다." 형식으로 출력하는 코드를 작성하시오.
+        입력 예시:
+        이름을 입력하세요: 유재석
+        나이를 입력하세요: 51
+        출력 예시:
+        유재석님의 나이는 51세 입니다.*/
+        Scanner scan = new Scanner(System.in); // 입력받기 준비물!
+        System.out.print("8. 이름: ");
+        String 이름 = scan.next(); // .next() console에서 입력받은 자료를 문자열로 반환
+        System.out.print("8. 나이: ");
+        int 나이 = scan.nextInt(); // .nextInt() console에서 입력받은 자료를 정수로 반환
+        System.out.printf("%s님의 나이는 %d세 입니다.\n", 이름, 나이);
 
+        /*문제 9: Scanner를 이용해 게시물 번호(int), 제목(String), 내용(String)을 순서대로 입력받아 출력하시오.
+        요구 조건: 제목과 내용은 띄어쓰기가 포함될 수 있으므로 nextLine()을 사용하시오.
+        입력 예시:
+        게시물 번호: 1
+        제목: 자바는 재미있어요
+        내용: 정말입니다. 다들 동의하시죠?
+        출력 예시:
+        [ 1번 게시물 ]
+        제목: 자바는 재미있어요
+        내용: 정말입니다. 다들 동의하시죠?*/
+        System.out.print("9-1. 게시물번호: ");        int bno = scan.nextInt();
+        scan.nextLine(); // 하나 추가해줘야 한다.
+        System.out.print("9-2. 제목: ");        String title = scan.nextLine();
+        System.out.print("9-3. 내용: ");        String comment = scan.nextLine();
+        System.out.printf("[%d번 게시물]\n", bno);
+        System.out.printf("제목: %s \n", title);
+        System.out.printf("내용: %s \n", comment);
+
+        /*문제 10: Scanner를 이용해 성별을 한 글자('남' 또는 '여')로 입력받아 char 타입 변수에 저장하고, 입력된 성별을 출력하시오.
+        요구 조건: Scanner에는 nextChar() 함수가 없으므로 next().charAt(0)을 활용하시오.
+        입력 예시:
+        성별을 입력하세요(남/여): 남
+        출력 예시:
+        입력하신 성별은 '남' 입니다.*/
+        // 문자 입력받기: next().charAt(0) (nextChar는 없다.)
+        System.out.print("10. 성별을 입력하세요(남/여): ");
+        char 성별 = scan.next().charAt(0); // (0)은 첫 글자 입력받기. 입력받은 첫글자만 반환.
+        System.out.printf("입력하신 성별은 '%s'입니다.\n", 성별);
+
+        /*문제 11: Scanner를 사용하여 아래 4가지 정보를 순서대로 입력받아 출력하는 코드를 작성하시오.
+        이름 (String), 나이 (int), 키 (double), 프로그래머 여부 (boolean)
+        입력 예시:
+        이름: 김자바
+        나이: 25
+        키: 165.8
+        프로그래머입니까? (true/false): true
+        출력 예시:
+        --- 자기소개 ---
+        이름: 김자바
+        나이: 25
+        키: 165.8cm
+        프로그래머 여부: true*/
+        System.out.print("11. 이름: ");           String 성함 = scan.next();
+        System.out.print("11. 나이: ");           int 연령 = scan.nextInt();
+        System.out.print("11. 키: ");             double 신장 = scan.nextDouble();
+        System.out.print("11. 프로그래머 여부: ");  boolean 여부 = scan.nextBoolean();
+        System.out.println("---------자기소개---------");
+        System.out.println("이름: " + 성함);        System.out.println("나이: " + 연령);
+        System.out.println("키: " + 신장);        System.out.println("프로그래머 여부: " + 여부);
 
 
 
@@ -114,6 +178,7 @@ String content = "안녕하세요!"; // 문자열 "안녕하세요!"를 저장�
 출력 예시:
 유재석님의 나이는 51세 입니다.
 */
+
 /*
 문제 9: Scanner를 이용해 게시물 번호(int), 제목(String), 내용(String)을 순서대로 입력받아 출력하시오.
 요구 조건: 제목과 내용은 띄어쓰기가 포함될 수 있으므로 nextLine()을 사용하시오.
