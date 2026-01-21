@@ -1,11 +1,19 @@
 package day002;
 
+/* 필기 */
 // 연산자: JS랑 비슷함.
 // but 자바는 문자열 비교가 안 된다!! 문자열을 객체로 보기 때문이다.
 // 비교연산자는 리터럴만.  객치 비교는 .equals() 필요.
 // JS: "문자열A" == "문자열B"  <- 자바에서는 안 됨.
 // JAVA: "문자열A".equals("문자열B")
 // 논리 연산자에 부정이 있음. !(x>30)  -> x는 30보다 크지 않다.
+/* 사고 순서 */
+// 1. 데이터 입력 방식?: (1) HTML Input (2) prompt (3) Scanner              ( 어떻게 . 입력을 어디로 받을 건지 선택.)
+// 2. 처리 로직?: (하고자 하는 기능 처리)                                     ( 무엇을 )
+// 3. 출력하는 방식?: (1) innerHTML (2) console (3) System.out.print()      ( 어디에 )
+
+
+
 
 import org.ietf.jgss.GSSContext;
 
@@ -23,9 +31,9 @@ public class Practice3 {
         출력 예시:
         총점: 255
         평균: 85.0 */
-        System.out.print("국어 점수: ");        int kor = scan.nextInt();
-        System.out.print("영어 점수: ");        int eng = scan.nextInt();
-        System.out.print("수학 점수: ");        int math = scan.nextInt();
+        System.out.print("01. 국어 점수: ");        int kor = scan.nextInt();
+        System.out.print("01. 영어 점수: ");        int eng = scan.nextInt();
+        System.out.print("01. 수학 점수: ");        int math = scan.nextInt();
         int sum1 = kor+eng+math;        double avr1 = sum1 / 3.0 ;
         System.out.println("총점: " + sum1 + "\n평균: " + avr1);
 
@@ -35,7 +43,7 @@ public class Practice3 {
         반지름을 입력하세요: 10.5
         출력 예시:
         원의 넓이: 346.185 */
-        System.out.print("반지름을 입력하세요: ");
+        System.out.print("02. 반지름을 입력하세요: ");
         double 반지름 = scan.nextDouble();
         double 넓이 = 반지름 * 반지름 * 3.14;
         System.out.println("원의 넓이 :" + 넓이);
@@ -47,8 +55,8 @@ public class Practice3 {
         두 번째 실수: 200
         출력 예시:
         비율: 25.0% */
-        System.out.print("첫 번째 실수: ");      double a3 = scan.nextDouble();
-        System.out.print("두 번째 실수: ");      double b3 = scan.nextDouble();
+        System.out.print("03. 첫 번째 실수: ");      double a3 = scan.nextDouble();
+        System.out.print("03. 두 번째 실수: ");      double b3 = scan.nextDouble();
         System.out.println("비율: " + a3/b3*100);
 
         /*[문제 4] Scanner를 이용해 정수 하나를 입력받아, 그 수가 홀수이면 true, 짝수이면 false를 출력하시오.
@@ -56,10 +64,10 @@ public class Practice3 {
         정수를 입력하세요: 17
         출력 예시:
         결과: true */
-        System.out.print("정수를 입력하세요: ");    int a4 = scan.nextInt();
-        System.out.println( a4%2!=0 ? "결과: true" : "결과: false" );
+        System.out.print("04. 정수를 입력하세요: ");    int a4 = scan.nextInt();
+        System.out.println( a4%2!=0 ? "04. 결과: true" : "04. 결과: false" );
         // 교수님 풀이
-        System.out.print("정수: ");   int i1 = scan.nextInt();
+        System.out.print("04. 정수: ");   int i1 = scan.nextInt();
         System.out.println( "결과: " + (i1 % 2 == 1) ); // 조건{true of false} ? 참 : 거짓
 
         /*[문제 5] Scanner를 이용해 정수 하나를 입력받아, 그 수가 7의 배수이면 true, 아니면 false를 출력하시오.
@@ -67,7 +75,7 @@ public class Practice3 {
         정수를 입력하세요: 28
         출력 예시:
         결과: true */
-        System.out.print( "정수를 입력하세요: " );
+        System.out.print( "05. 정수를 입력하세요: " );
         int a5 = scan.nextInt();
         System.out.println( "결과: " + (a5%7==0) );
 
@@ -78,8 +86,8 @@ public class Practice3 {
         비밀번호: 1234
         출력 예시:
         결과: true */
-        System.out.print("아이디: ");      String a6 = scan.next();
-        System.out.print("비밀번호: ");    String b6 = scan.next();
+        System.out.print("06. 아이디: ");      String a6 = scan.next();
+        System.out.print("06. 비밀번호: ");    String b6 = scan.next();
         System.out.println("결과: " + (a6.equals("admin")&&b6.equals("1234")) );
         // 교수님 풀이
         boolean result6 = a6.equals("admin") && b6.equals("1234");
@@ -90,7 +98,7 @@ public class Practice3 {
         정수를 입력하세요: 21
         출력 예시:
         결과: true */
-        System.out.print("정수를 입력하세요: ");
+        System.out.print("07. 정수를 입력하세요: ");
         int a7 = scan.nextInt();
         System.out.println( "결과: " + (a7%7==0 && a7%2==1) );
 
@@ -100,8 +108,8 @@ public class Practice3 {
         2차 점수: 75
         출력 예시:
         결과: 합격 */
-        System.out.print("1차 점수: ");        int a8 = scan.nextInt();
-        System.out.print("2차 점수: ");        int b8 = scan.nextInt();
+        System.out.print("08. 1차 점수: ");        int a8 = scan.nextInt();
+        System.out.print("08. 2차 점수: ");        int b8 = scan.nextInt();
         int sum8 = a8 + b8;
         System.out.println( "결과: " + (sum8>=150 ?  "합격" : "불합격") ); // 삼항연산자: 조건{true/false} ? 참 : 거짓
 
@@ -114,7 +122,7 @@ public class Practice3 {
         이름을 입력하세요: 강호동
         출력 예시 2:
         강호동 */
-        System.out.print("이름을 입력하세요: ");    String name9 = scan.next();
+        System.out.print("09. 이름을 입력하세요: ");    String name9 = scan.next();
         System.out.println(name9 + (name9.equals("유재석") ? "(방장)" : "") );
 
         /*[문제 10] Scanner를 이용해 삼각형의 밑변과 높이를 각각 double로 입력받아, 삼각형의 넓이를 계산하여 출력하시오.
@@ -124,9 +132,11 @@ public class Practice3 {
         높이: 5.5
         출력 예시:
         삼각형의 넓이: 27.5*/
-        System.out.print("삼각형의 밑변: ");      double a10 = scan.nextDouble();
-        System.out.print("삼각형의 높이: ");      double b10 = scan.nextDouble();
+        System.out.print("10. 삼각형의 밑변: ");      double a10 = scan.nextDouble();
+        System.out.print("10. 삼각형의 높이: ");      double b10 = scan.nextDouble();
         System.out.println("삼각형의 넓이: " + (a10 * b10 / 2.0));
+        // System.out.println("10. 삼각형의 넓이: " + a10 * b10 / 2.0);
+        // 계산식을 괄호로 묶지 않아도 "문자열"+계산식의 +는 알아서 연결 연산자로 작동하는 듯!!
 
         /*[문제 11] Scanner를 이용해 섭씨 온도를 double로 입력받아, 화씨 온도로 변환하여 출력하시오.
         요구 조건:
@@ -135,7 +145,7 @@ public class Practice3 {
         섭씨 온도: 30.0
         출력 예시:
         화씨 온도: 86.0 */
-        System.out.print("섭씨 온도: ");    double a11 = scan.nextDouble();
+        System.out.print("11. 섭씨 온도: ");    double a11 = scan.nextDouble();
         System.out.println("화씨온도: " + ((a11 * 9.0 / 5.0)+52));
 
         /*[문제 12] Scanner를 이용해 태어난 년도(int)를 입력받아, 2025년 기준 현재 나이를 계산하여 출력하시오.
@@ -145,8 +155,8 @@ public class Practice3 {
         태어난 년도: 1998
         출력 예시:
         2025년 기준 나이: 27세 */
-        System.out.print("태어난 년도: ");       int a12 = scan.nextInt();
-        System.out.println("2025년 기준 나이: " + (2025-a12));
+        System.out.print("12. 태어난 년도: ");       int a12 = scan.nextInt();
+        System.out.println("2025년 기준 나이: "+(2025-a12));
 
         /*[문제 13] Scanner를 이용해 키(cm)와 몸무게(kg)를 각각 double로 입력받아, BMI 지수를 계산하여 출력하시오.
         요구 조건:
@@ -157,10 +167,10 @@ public class Practice3 {
         몸무게(kg): 68.8
         출력 예시:
         BMI 지수: 22.34... */
-        System.out.print("키: ");            double a13 = scan.nextDouble();
+        System.out.print("13. 키: ");            double a13 = scan.nextDouble();
         double c13 = a13*0.01;
-        System.out.print("몸무게: ");         double b13 = scan.nextDouble();
-        System.out.println("BMI 지수: " + (b13 / (c13*c13)));
+        System.out.print("13. 몸무게: ");         double b13 = scan.nextDouble();
+        System.out.println("13. BMI 지수: "+(b13 / (c13*c13)));
 
         /*[문제 14] Scanner를 이용해 아이디와 이메일을 String으로 입력받습니다.
         아이디가 "admin"이거나 또는 이메일이 "admin@test.com"이면 "관리자",
@@ -170,9 +180,9 @@ public class Practice3 {
         이메일: admin@test.com
         출력 예시:
         결과: 관리자 */
-        System.out.print("아이디: ");       String a14 = scan.next();
-        System.out.print("이메일: ");     String b14 = scan.next();
-        System.out.println(a14.equals("admin")||b14.equals("admin@test.com") ? "관리자" : "일반 사용자");
+        System.out.print("14. 아이디: ");       String a14 = scan.next();
+        System.out.print("14. 이메일: ");       String b14 = scan.next();
+        System.out.println(a14.equals("admin")||b14.equals("admin@test.com")?"관리자":"일반 사용자");
 
         /*[문제 15] Scanner를 이용해 100점 만점의 점수(int)를 입력받아, 점수에 따라 아래와 같이 등급을 부여하고 출력하시오.
         90점 이상: 'A'
@@ -182,16 +192,18 @@ public class Practice3 {
         점수를 입력하세요: 88
         출력 예시:
         등급:B */
-        System.out.print("점수(100점 만점): ");      int a15 = scan.nextInt();
-        System.out.println( a15>=90?"A":a15>=80?"B":"C");
+        System.out.print("14. 점수(100점 만점): ");      int a15 = scan.nextInt();
+        System.out.println(a15>=90?"A":a15>=80?"B":"C");    // 70점대는 점수도 못 받아ㅠㅠㅠㅠ
+        System.out.println(a15>=90?"A":a15>=80?"B":a15<70?"C":"");
 
         /*[문제 16] Scanner를 이용해 나이(int)를 입력받아, 20대(20세 이상 29세 이하)에 해당하는 경우 "이벤트 대상입니다."를, 그렇지 않으면 "이벤트 대상이 아닙니다."를 출력하시오.
         입력 예시:
         나이를 입력하세요: 25
         출력 예시:
         이벤트 대상입니다. */
-        System.out.print("나이를 입력하세요: ");        int a16 = scan.nextInt();
-        System.out.println(a16>=20&&a16<=29?"이벤트 대상입니다.": "이벤트 대상이 아닙니다.");
+        System.out.print("14. 나이를 입력하세요: ");        int a16 = scan.nextInt();
+        System.out.println(a16>=20&&a16<=29?"이벤트 대상입니다.":"이벤트 대상이 아닙니다.");
+        System.out.println("이벤트 대상"+(a16>=20&&a16<=29?"입니다.":"이 아닙니다.")); // 이게 더 짧은듯
 
     }
 }

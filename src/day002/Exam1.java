@@ -5,7 +5,7 @@ public class Exam1 {
     public static void main(String[] args) {
 
     // ⭐ [1] 타입 = 자료형 = 분류 = 자료들을 분류/나누는 방법 ⭐
-        // (1) 자동 타입 변환('캐스팅') (묵시적: 개발자가 따로 (명시)할 게 없다.(자동!!)), 손실 없다.
+        // (1) 자동 타입 변환('캐스팅') 묵시적 타입 변환이라고도 함. (묵시적: 개발자가 따로 (명시)할 게 없다.(자동!!)), 손실 없다.
         // byte  -> short -> int -> long -> float -> double (작은상자 -> 큰상자 : 손실 없음!)
         byte byteValue = 10;                 // 10 자료를 byte 타입으로 분류했다.
         short shortValue = byteValue;        // byte 타입 -> short 타입 변환
@@ -15,7 +15,7 @@ public class Exam1 {
         double doubleValue = floatValue;     // float 타입 -> double 타입 변환
 
         // (2) 연산중 (자동) 타입변환
-        // byte + byte = int , byte + short = int , int + int = int , int 이하 피연산자들은 연산하면 int로 결과
+        // byte + byte = int , byte + short = int , int + int = int => int 이하 피연산자들은 연산하면 int로 결과
         // long / float / double 들은 피연사자 중에 더 큰 타입으로 결과나옴.
         byte b1 = 10;   byte b2 = 20;   short s1 = 30;   int i1 = 40;   long l1 = 50L;   float f1 = 3.13F;   double d1 = 41.24;
         int result1 = b1 + b2;      // byte + byte = int
