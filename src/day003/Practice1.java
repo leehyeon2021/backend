@@ -277,9 +277,15 @@ public class Practice1 {
         두 번째 정수: 4
         세 번째 정수: 8
         출력 예시: 4, 8, 17 */
+        // 스왑 : 두 변수 간의 자료 교환 , int temp = a14; a14 = b14; b14 = temp;
+        // {} 안에서 선언된 변수: 지역변수의 특징 갖는다.
         System.out.print("14. 첫 번째 정수: ");      int a14 = scan.nextInt();
         System.out.print("14. 두 번째 정수: ");      int b14 = scan.nextInt();
         System.out.print("14. 세 번째 정수: ");      int c14 = scan.nextInt();
+        if(a14 > b14){int temp = a14; a14 = b14; b14 = temp;}
+        if(a14 > c14){int temp = a14; a14 = c14; c14 = temp;}
+        if(b14 > c14){int temp = b14; b14 = c14; c14 = temp;}
+        System.out.printf("%d %d %d \n", a14 , b14 , c14);
 
         /*[문제 15] 가위바위보 게임
         지시: 두 명의 플레이어가 참여하는 가위바위보 게임을 만드시오.
@@ -292,7 +298,13 @@ public class Practice1 {
         플레이어1 (0:가위, 1:바위, 2:보): 1
         플레이어2 (0:가위, 1:바위, 2:보): 0
         출력 예시: 플레이어1 승리 */
-
-
+        // 활용: 경우의 수 찾기 연습
+        // p1 이기는 수: p1==0&&p2==2 || p1==1&&p2==0 || p1==2&&p2==1
+        // p1 이기는 수: p1 == (p2+1)%3
+        System.out.print("15. player1: 가위[0] 바위[1] 보[2]: "); int p1 = scan.nextInt();
+        System.out.print("15. player2: 가위[0] 바위[1] 보[2]: "); int p2 = scan.nextInt();
+        if( p1 == (p2+1)%3){ System.out.println("player1 승리");}
+        else if (p1==p2) {System.out.println("무승부");}
+        else {System.out.println("player2 승리");}
     }
 }
