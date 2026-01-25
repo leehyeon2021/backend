@@ -234,7 +234,5 @@ public class Practice5 {
                 break;
             }
         }
-
-
     }
 }
