@@ -1,5 +1,7 @@
 package day005;
 
+import java.util.Scanner;
+
 public class Practice7 {
     public static void main(String[] args) {
 
@@ -109,6 +111,12 @@ public class Practice7 {
         2. Scanner를 사용하여 사용자로부터 이름, 나이, MBTI를 순서대로 입력받으세요.
         3. 입력받은 값들을 생성된 객체의 각 멤버 변수에 저장하세요.
         3. 모든 정보가 저장된 객체의 멤버 변수들을 가져와 "--- 프로필 ---", "이름: [이름]", "나이: [나이]", "MBTI: [MBTI]" 형식으로 출력하세요.*/
+        UserProfile user1 = new UserProfile();
+        Scanner scan = new Scanner(System.in);
+        System.out.print("이름: "); user1.name = scan.next();
+        System.out.print("나이: "); user1.age = scan.nextInt();
+        System.out.print("MBTI: "); user1.mbti = scan.next();
+        System.out.printf("--- 프로필 ---\n이름: %s\n나이: %d\nMBTI: %s\n", user1.name , user1.age , user1.mbti);
 
     } // main end
 } // class end
