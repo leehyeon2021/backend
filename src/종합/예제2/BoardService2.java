@@ -2,7 +2,7 @@ package 종합.예제2;
 
 import java.util.Scanner;
 
-public class boardService2 {
+public class BoardService2 {
     public static void main(String[] args) {
         // [1] 메모리 설계: 데이터 최대 100개 저장
             // 1) 2개 정보를 가진 게시물이 3개이면 변수는 총 6개 갖는다.

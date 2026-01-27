@@ -2,7 +2,7 @@ package 종합.예제1;
 
 import java.util.Scanner;
 
-public class boardService1 {
+public class BoardService1 {
     // 자바는 무조건 클래스 단위로 작성한다.
     public static void main(String[] args) {
         // 자바는 무조건 main함수 부터 코드 실행흐름 시작된다.
