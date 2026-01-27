@@ -59,7 +59,15 @@ public class Practice8 {
 
     }
 }
+class Visualizer{
+    String getStars( int star ){
+        String stars = "";
+        for(int i = 0 ; i <= star ; i++){
+            stars += "★";
 
+        }
+    } return stars;
+}
 
 // 하나의 .java 파일 내 여러 개 클래스 존재할 수 있다.
 
