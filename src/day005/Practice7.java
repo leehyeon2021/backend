@@ -105,6 +105,9 @@ public class Practice7 {
         mi2.name = "된장찌개"; mi2.price = 8000; mi2.isSignature = false;
         MenuItem mi3 = new MenuItem();
         mi3.name = "계란찜"; mi3.price = 3000; mi3.isSignature = false;
+        if(mi1.isSignature == true){System.out.println(mi1.name + mi1.price);}
+        if(mi2.isSignature == true){System.out.println(mi2.name + mi2.price);}
+        if(mi3.isSignature == true){System.out.println(mi3.name + mi3.price);}
 
         /*[문제 10] UserProfile 클래스를 만드세요. name(문자열), age(정수), mbti(문자열) 멤버 변수를 가집니다.
         1. main 함수에서 UserProfile 객체를 하나 생성하세요.
@@ -113,7 +116,8 @@ public class Practice7 {
         3. 모든 정보가 저장된 객체의 멤버 변수들을 가져와 "--- 프로필 ---", "이름: [이름]", "나이: [나이]", "MBTI: [MBTI]" 형식으로 출력하세요.*/
         UserProfile user1 = new UserProfile();
         Scanner scan = new Scanner(System.in);
-        System.out.print("이름: "); user1.name = scan.next();
+        System.out.print("이름: "); //user1.name = scan.next();
+        String name = scan.next(); user1.name = name; // 객체명.속성명 = 변수명;
         System.out.print("나이: "); user1.age = scan.nextInt();
         System.out.print("MBTI: "); user1.mbti = scan.next();
         System.out.printf("--- 프로필 ---\n이름: %s\n나이: %d\nMBTI: %s\n", user1.name , user1.age , user1.mbti);
