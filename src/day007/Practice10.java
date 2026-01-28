@@ -53,6 +53,9 @@ public class Practice10 {
         최대 HP MAX_HP = 10000
         게임 이름 GAME_TITLE = "My RPG"
         2. main 함수에서 객체를 생성하지 않고 GameConfig.GAME_TITLE 과 같이 클래스 이름으로 직접 접근하여 모든 설정 값을 출력하세요.*/
+        System.out.println(GameConfig.MAX_LEVEL);
+        System.out.println(GameConfig.MAX_HP);      // 클래스 이름으로 직접 접근
+        System.out.println(GameConfig.GAME_TITLE);
 
 
     }//main end
@@ -113,7 +116,12 @@ class TicketMachine{
     }
 }
 
-
+// [6]
+class GameConfig{
+    public static final Short MAX_LEVEL = 99;
+    public static final int MAX_HP = 10000;
+    public static final String GAME_TITLE = "My RPG";
+}
 
 
 

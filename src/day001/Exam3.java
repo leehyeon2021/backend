@@ -50,13 +50,13 @@ public class Exam3 { // class s
         // [5] 이스케이프/제어 문자
         // "\n": 줄바꿈처리
         System.out.println("안녕1\n안녕2");
-        // "\t": 들여쓰기 [tab]기능.
+        // "\n": 줄바꿈처리
         System.out.println("안녕1\t안녕2");
-        // "\"": 큰따옴표 출력
+        // "\n": 줄바꿈처리
         System.out.println("안녕1\"안녕2");
-        // "\'": 작은따옴표 출력
+        // "\n": 줄바꿈처리
         System.out.println("안녕1\'안녕2");
-        // "\\": 백슬래시 출력
+        // "\n": 줄바꿈처리
         System.out.println("안녕1\\안녕2");
 
 
