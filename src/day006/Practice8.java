@@ -48,7 +48,8 @@ public class Practice8 {
         1. 정수 하나를 매개변수로 받아, 그 숫자만큼 "★" 문자를 반복하여 하나의 문자열로 만들어 반환하는 getStars 메소드를 정의하세요.
         2. main 함수에서 getStars(5)를 호출하여 반환된 문자열 "★★★★★"를 출력하세요.*/
         Visualizer s7 = new Visualizer();
-
+        String stars = s7.getStars(5);
+        System.out.println("stars = " + stars);
 
         /*[문제 8] ParkingLot 클래스를 만드세요.
         1. 주차 시간(분)을 매개변수로 받아, 요금 규정에 따라 계산된 최종 주차 요금을 반환하는 calculateFee 메소드를 정의하세요.
@@ -57,6 +58,7 @@ public class Practice8 {
         추가 요금: 30분 초과 시, 매 10분마다 500원씩 추가
         일일 최대 요금: 20,000원
         3. main 함수에서 calculateFee 메소드에 65, 140을 각각 인자로 전달하여 반환된 요금을 출력하세요.*/
+
 
     }
 }
@@ -113,10 +115,11 @@ class Product{
 }
 
 class Visualizer{
-    void getStars(int star ){
+    String getStars( int star ){
         String stars = "";
         for(int i = 0 ; i <= star ; ++i){
-
+            stars+="★";
         }
+    return stars;
     }
 }
