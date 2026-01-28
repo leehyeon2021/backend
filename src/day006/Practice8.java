@@ -58,7 +58,9 @@ public class Practice8 {
         추가 요금: 30분 초과 시, 매 10분마다 500원씩 추가
         일일 최대 요금: 20,000원
         3. main 함수에서 calculateFee 메소드에 65, 140을 각각 인자로 전달하여 반환된 요금을 출력하세요.*/
-
+        ParkingLot p8 = new ParkingLot();
+        System.out.println(p8.calculateFee(65));
+        System.out.println(p8.calculateFee(140));
 
     }
 }
@@ -121,5 +123,20 @@ class Visualizer{
             stars+="★";
         }
     return stars;
+    }
+}
+
+class ParkingLot{
+    int calculateFee(int time){
+        int sum = 1000;
+        if(time > 30){
+            for(int i = time; i > 30 ; i -= 10){
+                sum += 500;
+            }
+        }
+        if(sum>20000){
+            sum = 20000;
+        }
+        return sum;
     }
 }
