@@ -4,6 +4,8 @@ public class Practice9 {
     public static void main(String[] args) {
         /*[실습] * 제출용 */
 
+        // 🤔 생성자는 반환을 못 하기 때문에 메소드를 이용해서 반환 받는다!!
+
         /*[문제 1] Book 클래스를 만드세요. (title, author, price 멤버 변수) *멤버변수의 타입은 적절하게 선택하시오.
         1. Book 클래스에 title, author, price를 매개변수로 받아 멤버 변수를 초기화하는 생성자를 만드세요.
         2. main 함수에서 이 생성자를 사용하여,
