@@ -8,8 +8,8 @@ public class Exam2 {
         /*
         1. 싱글톤
         : 프로그램 내 단 하나의 인스턴스(객체) 갖는 설계 구조
-        2. 싱글톤 생성 (아래 Controller의 instance)
-        3. 다른 클래스에서 싱글톤 호출 , 클래스명.getInstance()        */
+        - 싱글톤 생성 (아래 Controller의 instance)
+        - 다른 클래스에서 싱글톤 호출 , 클래스명.getInstance()        */
         Controller.getInstance(); // == Controller 의 getInstance라는 함수(소괄호있으면함수)의 instance(리턴값) <-찾는법
         Controller controller1 = Controller.getInstance();                  // 여기는 인스턴스 생성 아님.
         Controller controller2 = Controller.getInstance();
@@ -37,13 +37,13 @@ public class Exam2 {
             3. M(model): 데이터 담당.
                 - 백엔드. JAVA/PYTHON/NODE.JS
                 - 데이터베이스 상호작용
-                    - DAO( data access object ) : 데이터에 접근 객체. view한테 직접 가면 안 됨. ex] 물류 센터에서 짐 싣는. 센터는 하나.
-                    - DTO( data transfer object ) : 데이터를 이동 객체. DAO에서 controller으로, Controller에서 View로 이동시켜줌. ex] 택시 기사가 짐 이동하는. 택시 기사는 여러 명. 자료가 하나가 되면 안 됨. 여러 자료들의 모델이기 때문에 싱글톤 안 씀,
-                    - VO( value Object ) : 읽기전용 객체.  싱글톤 안 씀
+                    - DAO( Data Access Object ) : 데이터에 접근 객체. view한테 직접 가면 안 됨. ex] 물류 센터에서 짐 싣는. 센터는 하나.
+                    - DTO( Data Transfer Object ) : 데이터를 이동 객체. DAO에서 controller으로, Controller에서 View로 이동시켜줌. ex] 택시 기사가 짐 이동하는. 택시 기사는 여러 명. 자료가 하나가 되면 안 됨. 여러 자료들의 모델이기 때문에 싱글톤 안 씀,
+                    - VO( Value Object ) : 읽기전용 객체.  싱글톤 안 씀
                 - 관례적인 규칙: DTO 에는 데이터모델 이므로 싱글톤을 사용하지 않는다.
         - 사용법: 패키지명은 소문자, 클래스명은 대문자 시작.
 
-
+        ** 명세? **
         1. 요구사항(기획서)작성: 주제, 기능, 목적, 기술스택 등
         2. 프로토타입(피그마): 만들고자 하는 결과의 청사진
         3. 데이터모델: 영구적으로 남길 데이터 테이블 하나가 ArrayList, 한 행이 객체/dto/레코드 하나.
@@ -54,6 +54,14 @@ public class Exam2 {
         6. 싱글톤 구성: view , controller , dao에만 구성. (dto(여러 자료들의 모델)는 싱글톤을 하지 않는다.)
             - 싱글톤 호출의 원칙: view -> controller -> dao.
                 - ! dao -> controller는 안 됨! view -> dao 이런 건 원칙 위반!
+        7. DTO 구성: 여러 데이터들의 표본/모델 , 싱글톤 없어도 된다. 데이터베이스(표)의 속성(열) 참고.
+        8. DAO 구성: DB 연동 / 지금은 없어서 임시데이터베이스를 ArrayList로 구성.
+        9. 기능구현: 정해진 작성순서 없음.
+                - 권장: DAO -> Controller -> View . 명세서 참고
+
+        +) 콘솔에서 테스트할 수 없기 때문에 API 테스트 진행.
+
+        10. 연동
         */
 
     }
