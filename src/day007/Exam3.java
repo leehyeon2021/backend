@@ -8,7 +8,7 @@ public class Exam3 {
         User user = new User();
         /*
         user.name = "유재석";
-        System.ou.println("user.name ="+user.name)
+        System.out.println("user.name ="+user.name);
         // vs.
         setter 이용한 멤버변수 접근(저장)*/
         user.setName("유재석");/*
@@ -29,11 +29,13 @@ class User{
     // 2. 생성자
     // 3. 메소드
     // * 과녜적으로 private 멤버변수에 대해 간접접근
-    // getter 메소드 호환용
+    // getter 메소드: 호환용
+    //    - public void get멤버변수명(){ return 멤버변수명; }
     public String getName(){
         return this.name;
     }
     // setter 메소드: 저장용
+    //    - public void set멤버변수명( 타입 매개변수 ){ this.멤버변수명 = 매개변수; }
     public void setName(String name) { //private으로 하면 다른 클래스에서 사용 안 됨...
         this.name = name;
     }
