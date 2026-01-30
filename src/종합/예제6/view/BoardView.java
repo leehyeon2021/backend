@@ -32,7 +32,7 @@ public class BoardView {
         System.out.println("1. 게시물 쓰기  |  2. 게시물 출력");
         System.out.println("===============================");
         System.out.print("선택> ");
-        Scanner scan = new Scanner(System.in);
+        //Scanner scan = new Scanner(System.in);
         int ch = scan.nextInt();
         if(ch == 1){ writeView(); } // 만약에 1번 입력하면 쓰기 페이지로 이동
         else if(ch == 2){ printView(); } // 만약에 2번 입력하면 전체조회 페이지로 이동

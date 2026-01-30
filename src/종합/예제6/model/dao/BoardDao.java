@@ -10,7 +10,7 @@ public class BoardDao {
     private BoardDao(){}
     // [2] 상수 만들기
     private static final BoardDao instance = new BoardDao();
-    // [3] 싱글톤
+    // [3] 싱글톤 반환
     public static BoardDao getInstance(){
         return instance;
     }
