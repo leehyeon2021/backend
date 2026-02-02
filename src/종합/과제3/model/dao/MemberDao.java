@@ -16,7 +16,9 @@ public class MemberDao {
     // 회원가입
     public boolean signUp(String mname , String mid , String mpw){
         String qname="일반 회원";
-        if(mname.equals("admin")&&mid.equals("admin")&&mpw.equals("admin")){currentMno=0; qname="관리자";}
+        if(mname.equals("admin")&&mid.equals("admin")&&mpw.equals("admin")){
+            currentMno=0; qname="관리자";
+        }
         MemberDto memberDto = new MemberDto(currentMno, mname, mid, mpw, qname);
         boolean result = memberList.add(memberDto);
         if(result){currentMno++;}

@@ -3,6 +3,7 @@ package 종합.과제3.view;
 import 종합.과제3.controller.BookController;
 import 종합.과제3.controller.MemberController;
 import 종합.과제3.model.dto.BookDto;
+import 종합.과제3.model.dto.MemberDto;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -52,7 +53,7 @@ public class BookView {
         System.out.print("제목:");    String bname = scan.next();
         System.out.print("작가:");    String bw = scan.next();
         System.out.print("출판사:");    String bp = scan.next();
-        int mno = mc.getLoginSession();
+        int mno = 0; // 관리자 넘버(0) 설정 필요... 임시로 그냥 0 넣어둠
         if(mno==0){ boolean result = bc.add(bname, bw, bp, mno);
             if(result){System.out.println("도서 등록이 완료되었습니다.");}
             else{{System.out.println("도서 등록 실패.");}
