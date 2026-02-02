@@ -1,8 +1,6 @@
 package 종합.회원제중고거래시스템.view;
 
 import 종합.회원제중고거래시스템.controller.MemberController;
-import 종합.회원제중고거래시스템.controller.ProductController;
-
 import java.util.Scanner;
 
 public class MemberView {

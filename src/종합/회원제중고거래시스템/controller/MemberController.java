@@ -41,7 +41,7 @@ public class MemberController {
         System.out.println("mid = " + mid + ", mpw = " + mpw);
         int result = mc.login(mid , mpw);
         if(result>0){
-            loinSession = result;   // '세션(걍변수임) 부여'
+            loinSession = result;   // '세션(걍 변수임) 부여'
             return true;
         }
         return false;
