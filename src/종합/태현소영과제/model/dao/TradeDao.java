@@ -1,6 +1,6 @@
-package 종합.과제2인_trade.model.dao;
+package 종합.태현소영과제.model.dao;
 
-import 종합.과제2인_trade.model.dto.TradeDto;
+import 종합.태현소영과제.model.dto.TradeDto;
 import java.util.ArrayList;
 
 public class TradeDao {
@@ -41,8 +41,8 @@ public class TradeDao {
     // 아이디 찾기
 
     // 비밀번호 찾기
-    public String pwFinder(String id , String name , String pn){
-
-    }
+//    public String pwFinder(String id , String name , String pn){
+//
+//    }
 
 }

@@ -1,6 +1,6 @@
-package 종합.과제2인_trade.view;
+package 종합.태현소영과제.view;
 
-import 종합.과제2인_trade.controller.TradeController;
+import 종합.태현소영과제.controller.TradeController;
 
 import java.util.Scanner;
 

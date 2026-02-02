@@ -1,6 +1,6 @@
-package 종합.과제2인_trade.controller;
+package 종합.태현소영과제.controller;
 
-import 종합.과제2인_trade.model.dao.TradeDao;
+import 종합.태현소영과제.model.dao.TradeDao;
 
 public class TradeController {
 

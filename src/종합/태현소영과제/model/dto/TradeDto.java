@@ -1,4 +1,4 @@
-package 종합.과제2인_trade.model.dto;
+package 종합.태현소영과제.model.dto;
 
 public class TradeDto {
     // 1. 멤버변수
