@@ -17,8 +17,8 @@ public class BookController {
     // 도서 추가
     public boolean add(String bname , String bw , String bp, int mno){
         BookDto bookDto = new BookDto();
-        if(mno==0){boolean result = bd.add(bname , bw , bp, mno);}
-        else if (mno>0) {return false;}
+        if(mno==1){boolean result = bd.add(bname , bw , bp, mno);}
+        else if (mno>1) {return false;}
         return true;
     }
 

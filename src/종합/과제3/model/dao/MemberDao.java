@@ -11,14 +11,11 @@ public class MemberDao {
     }
 
     private ArrayList<MemberDto> memberList = new ArrayList<>();
-    private int currentMno = 1;
+    private int currentMno = 2;
 
     // 회원가입
     public boolean signUp(String mname , String mid , String mpw){
         String qname="일반 회원";
-        if(mname.equals("admin")&&mid.equals("admin")&&mpw.equals("admin")){
-            currentMno=0; qname="관리자";
-        }
         MemberDto memberDto = new MemberDto(currentMno, mname, mid, mpw, qname);
         boolean result = memberList.add(memberDto);
         if(result){currentMno++;}
@@ -27,6 +24,8 @@ public class MemberDao {
 
     // 로그인
     public int logIn(String mid , String mpw){
+        MemberDto admin = new  MemberDto(1, "admin", "admin", "admin",  "관리자");
+        memberList.add(admin);
         for(int i=0;i<memberList.size();i++){
             MemberDto members = memberList.get(i);
             if(members.getMid().equals(mid)&&members.getMpw().equals(mpw)){

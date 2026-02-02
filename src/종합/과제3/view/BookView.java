@@ -29,11 +29,12 @@ public class BookView {
             System.out.println("---------------------------------------");
             System.out.print("숫자 입력> "); int ch = scan.nextInt();
             System.out.println("---------------------------------------");
-            if(ch==1){}
+            if(ch==1){findAll();}
             else if(ch==2){}
             else if(ch==3){}
             else if(ch==4){mc.logOut();System.out.println("로그아웃 되셨습니다.");break;}
             else if(ch==5){add();}
+            else {System.out.println("숫자를 확인하십시오.");}
         }
     }// index end
 
@@ -42,7 +43,7 @@ public class BookView {
         ArrayList<BookDto> books = bc.findAll();
         for(int i=0;i<books.size();i++){
             BookDto bookDto = books.get(i);
-            System.out.printf("제목: %d, 작가: %d, 출판사: %d\n"+ bookDto.getBname()+bookDto.getBw()+bookDto.getBp());
+            System.out.printf("제목: %s, 작가: %s, 출판사: %s\n", bookDto.getBname(), bookDto.getBw(),bookDto.getBp());
         }
     }
 
@@ -53,11 +54,13 @@ public class BookView {
         System.out.print("제목:");    String bname = scan.next();
         System.out.print("작가:");    String bw = scan.next();
         System.out.print("출판사:");    String bp = scan.next();
-        int mno = 0; // 관리자 넘버(0) 설정 필요... 임시로 그냥 0 넣어둠
-        if(mno==0){ boolean result = bc.add(bname, bw, bp, mno);
+        int mno = 1; // 관리자 넘버(1) 설정 필요... 임시로 그냥 1 넣어둠
+        if(mno==1){ boolean result = bc.add(bname, bw, bp, mno);
             if(result){System.out.println("도서 등록이 완료되었습니다.");}
             else{{System.out.println("도서 등록 실패.");}
             }
+        }else {
+            System.out.println("관리자가 아닙니다.");
         }
 
     }
