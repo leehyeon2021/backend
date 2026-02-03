@@ -122,6 +122,7 @@ create table product(
 select * from product;
 
 -- --------------------------------
+-- [ 다이어그램 생성 ]
 -- ER 다이어그램 : 여러 테이블 들 간의 관계를 시각적으로 파악하기 위한 것. // 원래는 다이어그램 만든 후에 db 다뤄야 함.alter
 -- ERD 다이어그램: 데이터베이스 테이블 간의 관계를 시각적으로 나타낸 것.
 -- 상단의 'Database' -> Reverse Engineer(ctrl+R) -> 로컬에서 원하는 DB 선택하여 생성.
