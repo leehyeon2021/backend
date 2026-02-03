@@ -36,4 +36,9 @@ public class MemberController {
         return true;
     }
 
+    public boolean admin(String pw){
+        boolean result = md.admin(pw);
+        return result;
+    }
+
 }

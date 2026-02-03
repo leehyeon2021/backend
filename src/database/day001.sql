@@ -28,7 +28,7 @@ show databases;
 show variables like 'datadir';	-- 'data diract' 문자처리
 -- (3) 현재 DB서버에서 나만의 데이터베이스 생성
 create database mydb0130; -- 생성한다 데이터베이스 데이터베이스이름(특수문자,한글제외권장);. ctrl + enter로 생성.
--- (4) 현재 DB서버의 데이터베이스 삭지
+-- (4) 현재 DB서버의 데이터베이스 삭제
 drop database mydb0130; -- 삭제한다 데이터베이스 삭제할데이터베이스이름; 삭제 확인하려면 삭제 후 sho databases 확인하면 됨.
 -- (4-1) **만약에** 존재하면 삭제, 존재하지 않으면 삭제 안 함.
 drop database if exists mydb0130;
