@@ -35,8 +35,8 @@ public class MemberView {
         System.out.print("아이디: ");      String mid = scan.next();
         System.out.print("비밀번호: ");     String mpw = scan.next();
         boolean result = mc.signUp(mname , mid , mpw);
-        if(result){System.out.println(mname+" 님 회원가입 성공. 메인 화면으로 돌아갑니다.\n");}
-        else{System.out.println("회원가입 실패. 메인 화면으로 돌아갑니다.\n");}
+        if(result){System.out.println("\n"+mname+" 님 회원가입 성공. 메인 화면으로 돌아갑니다.\n");}
+        else{System.out.println("\n회원가입 실패. 메인 화면으로 돌아갑니다.\n");}
     }
 
     // 로그인
@@ -44,8 +44,8 @@ public class MemberView {
         System.out.print("아이디: "); String mid = scan.next();
         System.out.print("비밀번호: "); String mpw = scan.next();
         boolean result = mc.logIn(mid , mpw);
-        if(result){System.out.println("로그인 성공. 도서관에 오신 것을 환영합니다.\n"); bv.index();}
-        else{System.out.println("로그인 실패. 아이디와 비밀번호를 확인하세요.\n");}
+        if(result){System.out.println("\n로그인 성공. 도서관에 오신 것을 환영합니다.\n"); bv.index();}
+        else{System.out.println("\n로그인 실패. 아이디와 비밀번호를 확인하세요.\n");}
     }
 
 

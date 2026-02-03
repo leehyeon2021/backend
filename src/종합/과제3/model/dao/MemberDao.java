@@ -21,14 +21,12 @@ public class MemberDao {
         if(result){currentMno++;}
         return result;
     }
-    private static final MemberDto admin = new  MemberDto(1, "admin", "admin", "admin",  "관리자");
-    private static MemberDto getadmin(){
-        memberList.add(admin);
-        return admin;
-    }
+
+
 
     // 로그인
     public int logIn(String mid , String mpw){
+        getadmin();
         for(int i=0;i<memberList.size();i++){
             MemberDto members = memberList.get(i);
             if(members.getMid().equals(mid)&&members.getMpw().equals(mpw)){
@@ -38,7 +36,12 @@ public class MemberDao {
         return 0;
     }// logIn end
 
-
+    // 관리자 계정
+    private static final MemberDto admin = new  MemberDto(1, "admin", "admin", "admin",  "관리자");
+    private static MemberDto getadmin(){
+        memberList.add(admin);
+        return admin;
+    }
     // 관리자 계정 - 비밀번호를 입력하여 관리자 페이지로 이동.
     public boolean admin(String pw){
         if(pw.equals(getadmin().getMpw())){
