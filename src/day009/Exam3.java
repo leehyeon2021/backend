@@ -32,7 +32,7 @@ class 상위클래스{ // 슈퍼클래스
     int value1 = 10;
     int value2 = 20;
     // 생성자
-    상위클래스(){System.out.println("상위클래스 생성");}
+    상위클래스(){System. ,out.println("상위클래스 생성");}
     // 메소드 - 하위클래스가 못 쓰게 하고 싶다면 private이나 final 사용하면 된다.
     void show(){System.out.println("상위클래스 메소드 실행");}
 }
@@ -45,7 +45,7 @@ class 하위클래스 extends 상위클래스{
     // 생성자
     하위클래스(){System.out.println("하위클래스 생성");}
     // 메소드
-    @Override    //<- 오버로딩: 생략 가능. 부모로 부터 물려 받은 메소드를 재정의한다.
+    @Override    //<- 오버라이딩: 생략 가능. 부모로 부터 물려 받은 메소드를 재정의한다.
     void show(){ // 상위클래스 메소드 선언부가 일치하면 '오버라이딩' (선언부가 똑같을 때 재정의)
         // 오버라이딩 하면 최우선으로 메소드가 실행된다.
         System.out.println("하위클래스 메소드 실행(재정의)");

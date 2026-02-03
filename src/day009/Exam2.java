@@ -44,7 +44,7 @@ public class Exam2 {
         System.out.println(b instanceof D); // false
 
         // 즉: 해당 객체가 생성될 때 부모객체는 생성되지만 자식객체는 생성 안 된다.
-        // 업캐스팅은 되지만 자식들 밑으로는 **다운 캐스팅이 안 된느 전제조건**
+        // 업캐스팅은 되지만 자식들 밑으로는 **다운 캐스팅이 안 되는 전제조건**
 
     }//main end
 }//class end
