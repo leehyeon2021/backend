@@ -1,4 +1,5 @@
 /*[실습] 제출용 */
+-- 대문자 사용하는게 관례래... 가독성이랑 운영체제문제 때문이래...
 
 -- 아래 샘플 SQL 전체 실행 : ctrl+shift+enter
 DROP DATABASE IF EXISTS practice3;
@@ -74,8 +75,8 @@ INSERT INTO orders VALUES(NULL, 1004, '최수아', 2, '2023-07-10');
 -- price : 17000
 -- stock : 25
 -- pub_date : '2023-03-01'
-insert into books values( 1012 , 'MySQL 실습' , '김민수' , '컴퓨터' , 17000 , 25 , '2023-03-01');
-select * from books;
+INSERT INTO books VALUES( 1012 , 'MySQL 실습' , '김민수' , '컴퓨터' , 17000 , 25 , '2023-03-01');
+SELECT * FROM books;
 
 -- [문제 2]books 테이블에 다음 정보를 가진 도서를 추가하세요.
 -- book_id : 1013
@@ -85,71 +86,70 @@ select * from books;
 -- price : 22000
 -- stock : NULL
 -- pub_date : '2022-09-10'
-insert into books(book_id , title , author , genre , price , pub_date) values(1013 , '데이터베이스 개론' , '이영희' , '컴퓨터' , 22000 , '2022-09-10');
-select * from books;
+INSERT INTO books(book_id , title , author , genre , price , pub_date) VALUES(1013 , '데이터베이스 개론' , '이영희' , '컴퓨터' , 22000 , '2022-09-10');
+SELECT * FROM books;
 
 -- [문제 3]orders 테이블에 다음 정보를 가진 주문 데이터를 추가하세요.(※ order_id는 AUTO_INCREMENT)
 -- book_id : 1002
 -- customer : '최지훈'
 -- order_qty : 1
 -- order_date : '2023-08-15'
-insert into orders(book_id , customer , order_qty , order_date)values(1002,'최지훈',1,'2023-08-15'); -- id는 자동이라 그냥 null로 두는구나
-select*from orders;
+INSERT INTO orders(book_id , customer , order_qty , order_date)VALUES(1002,'최지훈',1,'2023-08-15'); -- id는 자동이라 그냥 null로 두는구나
+SELECT * FROM orders;
 
 -- [문제 4]books 테이블에서 book_id가 1004 인 도서의 price를 15000 으로 수정하세요.
-update books set price = 15000 where book_id = 1004;
-select*from books;
+update books set price = 15000 WHERE book_id = 1004;
+SELECT * FROM books;
 
 -- [문제 5]books 테이블에서 장르(genre)가 '소설' 인 도서의 price를기존 가격에서 2000원 인상하도록 수정하세요.(산술연산자 사용)
-update books set price = price + 2000 where genre = '소설';
-select*from books;
+UPDATE books SET price = price + 2000 WHERE genre = '소설';
+SELECT * FROM books;
 
 -- [문제 6]books 테이블에서 재고(stock)가 NULL인 도서의 stock 값을 0 으로 수정하세요.
-update books set stock = 0 where stock is null;
-select*from books;
+UPDATE books SET stock = 0 WHERE stock IS NULL;
+SELECT * FROM books;
 
 -- [문제 7]orders 테이블에서 고객명(customer)이 '이서연' 인 주문 데이터를 모두 삭제하세요.
-delete from orders where customer = '이서연';
-select*from orders;
+DELETE FROM orders WHERE customer = '이서연';
+SELECT * FROM orders;
 
 -- [문제 8]books 테이블에서 재고(stock)가 0 이하(<= 0) 인 도서를 삭제하세요.
-delete from books where stock <= 0; -- 왜 안 됨 -> fk에 on update cascade on delete cascade 안 해서 그런 거였음. 참조한 외래키가 사라지면 곤란하니까...
-select*from books;
+DELETE FROM books WHERE stock <= 0; -- 왜 안 됨 -> fk에 on update cascade on delete cascade 안 해서 그런 거였음. 참조한 외래키가 사라지면 곤란하니까...
+SELECT * FROM books;
 
 -- [문제 9]orders 테이블에서 주문수량(order_qty)이 3 이상(>=) 인 주문 데이터를 삭제하세요.
-delete from orders where order_qty >= 3;
-select*from orders;
+DELETE FROM orders WHERE order_qty >= 3;
+SELECT * FROM orders;
 
 -- [문제 10]books 테이블에서 모든 도서의 모든 컬럼을 조회하세요.
-select*from books;
+SELECT * FROM books;
 
 -- [문제 11]books 테이블에서 title, price 컬럼만 조회하세요.
-select title , price from books;
+SELECT title , price FROM books;
 
 -- [문제 12]books 테이블에서 price가 20000 초과(>) 인 도서의 title, price를 조회하세요.
-select title , price from books where price > 20000;
+SELECT title , price FROM books WHERE price > 20000;
 
 -- [문제 13]books 테이블에서 price가 15000 이상(>=) 이고 stock이 10 이상(>=) 인 도서의 title, price, stock을 조회하세요.
-select title, price, stock from books where price >= 15000 and stock >= 10;
+SELECT title, price, stock FROM books WHERE price >= 15000 AND stock >= 10;
 
 -- [문제 14] books 테이블에서 장르(genre)가 '컴퓨터' 또는 '경제' 인 도서의 title, genre를 조회하세요. (IN 연산자 사용)
-select title , genre from books where genre = '컴퓨터' or genre = '경제';
+SELECT title , genre FROM books WHERE genre = '컴퓨터' OR genre = '경제';
 
 -- [문제 15] books 테이블에서 장르(genre)가 '소설'이 아닌 도서의 모든 정보를 조회하세요. (NOT 사용)
-select * from books where genre != '소설';
+SELECT * FROM books WHERE genre != '소설';
 
 -- [문제 16] books 테이블에서 재고(stock)가 NULL인 도서의 title, stock을 조회하세요.(IS NULL 사용)
-select title , stock from books where stock is null; -- 아까 다 0으로 바꾸고 지워서 없음.
+SELECT title , stock FROM books WHERE stock IS NULL ; -- 아까 다 0으로 바꾸고 지워서 없음.
 
 -- [문제 17] books 테이블에서 재고(stock)가 NULL이 아닌 도서의 title, stock을 조회하세요. (IS NOT NULL 사용)
-select title , stock from books where stock is not null;
+SELECT title , stock FROM books WHERE stock IS NOT NULL;
 
 -- [문제 18]books 테이블에서 price가 14000 ~ 18000 사이인 도서의 title, price를 조회하세요. (BETWEEN 사용)
-select title , price from books where price between 14000 and 18000;
+SELECT title , price FROM books WHERE price BETWEEN 14000 AND 18000;
 
 -- [문제 19] books 테이블에서 도서명(title)에 '자'가 포함된 도서의 title, author를 조회하세요. (LIKE '%자%' 사용)
-select title , author from books where title like '%자%'; -- where 속성명 like 라이크~~~
+SELECT title , author FROM books WHERE title LIKE '%자%'; -- where 속성명 like 라이크~~~
 
 -- [문제 20] books 테이블에서 저자(author)가 '김'으로 시작하는 3글자인 도서의 title, author를 조회하세요. (LIKE '김__' 사용)
-select title , author from books where author like '김__';
-
+SELECT title , author FROM books WHERE author LIKE '김__';
