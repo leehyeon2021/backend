@@ -14,11 +14,33 @@ public class Practice12 {
         cat.makeSound();
 
         // [3] 생성자 호출 순서
+        Computer computer = new Computer();
+            // 1) 부모 클래스 생성자 실행 , 2) 자식 클래스 생성자 실행
+            // 교수님: 자식이 태어날 때 부모도 태어난다
+
+        // [4] 다형성: 자동 타입 반환
+        Figure figure = new Triangle();
+            // 하위 클래스 객체 생성 시 상위 클래스도 생성된다.
+            // 교수님: Triangle 클래스는 figure로 부터 상속 받았기 때문이다.
+
+        // [5] 다형성과 오버라이딩
+        Shape shape = new Circle();
+        shape.draw(); // 원을 그립니다.
+            // 오버라이딩
+
+        // [6] instanceof 강제타입변환
+        Vehicle vehicle = new Bus();
+        if( vehicle instanceof  Bus){
+            System.out.println("(bus 타입이 맞습니다.)");
+            ((Bus) vehicle).checkFare();
+        }else{System.out.println("bus 타입이 아닙니다.");}
+
+        // [7] 다형성을 활용한 객체
 
 
+    }// main end
+}// class end
 
-    }
-}
 /*[실습] 제출용 /
 
 /*[문제 1] 기본 상속
@@ -51,30 +73,71 @@ class Cat extends Animal{
 1. 생성자에서 "부모 클래스 생성자 실행"을 출력하는 Machine 클래스를 만드세요.
 2. Machine을 상속받고, 생성자에서 "자식 클래스 생성자 실행"을 출력하는 Computer 클래스를 만드세요.
 3. main 함수에서 Computer 객체를 생성할 때, 콘솔에 출력되는 생성자 호출 순서를 확인하세요.*/
-
+class Machine{
+    public Machine() {
+        System.out.println("부모 클래스 생성자 실행");
+    }
+}
+class Computer extends Machine{
+    Computer(){
+        System.out.println("자식 클래스 생성자 실행");
+    }
+}
 
 /*[문제 4] 다형성: 자동 타입 변환 (Upcasting)
 1. Figure 클래스를 만드세요.
 2. Figure를 상속받는 Triangle 클래스를 만드세요.
 3. main 함수에서 Triangle 객체를 생성하여 Figure 타입의 변수에 저장하는 코드를 작성하고, 이것이 가능한 이유를 주석으로 설명하세요.*/
+class Figure{}
+class Triangle extends Figure{}
 
 /*[문제 5] 다형성과 오버라이딩
 1."도형을 그립니다."를 출력하는 draw() 메소드를 가진 Shape 클래스를 만드세요.
 2.Shape을 상속받고, draw() 메소드를 재정의하여 "원을 그립니다."를 출력하는 Circle 클래스를 만드세요.
 3.main 함수에서 Shape shape = new Circle(); 코드를 작성한 뒤, shape.draw()를 호출했을 때 어떤 결과가 나오는지 확인하고 그 이유를 주석으로 설명하세요.*/
-
+class Shape{
+    void draw(){
+        System.out.println("도형을 그립니다.");
+    }
+}
+class Circle extends Shape{
+    void draw() {
+        System.out.println("원을 그립니다.");
+    }
+}
 
 /*[문제 6] instanceof와 강제 타입 변환 (Downcasting)
 1. Vehicle 클래스와 이를 상속받는 Bus 클래스를 만드세요. Bus 클래스에만 checkFare() 메소드("요금을 확인합니다.")를 추가하세요.
 2. main 함수에서 Vehicle vehicle = new Bus(); 코드를 작성하세요.
 3. if문과 instanceof 연산자를 사용하여 vehicle 변수가 Bus 타입인지 확인하세요.
 4. 만약 Bus 타입이 맞다면, Bus 타입으로 강제 변환한 뒤 checkFare() 메소드를 호출하세요.*/
+class Vehicle{}
+class Bus extends Vehicle{
+    void checkFare(){
+        System.out.println("요금을 확인합니다.");
+    }
+}
 
 /*[문제 7] 다형성을 활용한 객체 배열
 1. "음료를 마십니다."를 출력하는 drink() 메소드를 가진 Beverage 클래스를 만드세요.
 2. Beverage를 상속받는 Coke와 Coffee 클래스를 만들고, 각 클래스에서 drink() 메소드를 오버라이딩하여 "콜라를 마십니다.", "커피를 마십니다."를 출력하도록 하세요.
 3. main 함수에서 Beverage 타입의 배열을 생성하고, 그 안에 Coke 객체와 Coffee 객체를 저장하세요.
 4. 반복문을 사용하여 배열의 모든 요소를 꺼내 drink() 메소드를 호출하고, 각기 다른 결과가 출력되는 것을 확인하세요.*/
+class Becerage{
+    void drink(){
+        System.out.println("음료를 마십니다.");
+    }
+}
+class Coke{
+    void drink(){
+        System.out.println("콜라를 마십니다.");
+    }
+}
+class Coffee{
+    void drink(){
+        System.out.println("커피를 마십니다.");
+    }
+}
 
 /*[문제 8] 다형성을 활용한 매개변수
 1. Weapon 클래스와 이를 상속받는 Sword, Gun 클래스를 만드세요. 각 클래스는 "무기로 공격합니다.", "검으로 공격합니다.", "총으로 공격합니다."를 출력하는 attack() 메소드를 가집니다. (오버라이딩 활용)

@@ -2,13 +2,12 @@ package 종합.회원제중고거래시스템.view;
 
 import 종합.회원제중고거래시스템.controller.MemberController;
 import 종합.회원제중고거래시스템.controller.ProductController;
-import 종합.회원제중고거래시스템.model.dao.ProductDao;
 import 종합.회원제중고거래시스템.model.dto.ProductDto;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ProductView {
+public class ProductView{
     private ProductView(){}
     private static final ProductView instance = new ProductView();
     public static ProductView getInstance(){
@@ -34,6 +33,8 @@ public class ProductView {
 
         }//for end
     }//index end
+
+
 
     // [1] 제품 등록 페이지
     public void add(){
