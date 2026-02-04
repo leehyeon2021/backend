@@ -32,7 +32,7 @@ class 상위클래스{ // 슈퍼클래스
     int value1 = 10;
     int value2 = 20;
     // 생성자
-    상위클래스(){System. ,out.println("상위클래스 생성");}
+    상위클래스(){System.out.println("상위클래스 생성");}
     // 메소드 - 하위클래스가 못 쓰게 하고 싶다면 private이나 final 사용하면 된다.
     void show(){System.out.println("상위클래스 메소드 실행");}
 }
