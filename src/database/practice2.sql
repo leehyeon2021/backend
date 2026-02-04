@@ -1,6 +1,11 @@
 /*[실습] 제출용 */
+-- 다이어그램 만들어보기~~ (Database -> reverse engineer)
+
 -- 아래 문제는 'practice2' 데이터베이스 생성 후 진행 합니다.
+drop database if exists practice2;
 create database practice2;
+use practice2;
+
 -- [문제 1]아래 조건에 맞는 members 테이블을 생성하는 SQL을 작성하세요.
 -- 테이블명: members
 -- 컬럼 정보
@@ -12,12 +17,13 @@ create database practice2;
 create table members(
 	member_id int auto_increment ,
     member_name varchar(50) not null ,
-    email varchar(100) unique not null ,
+    email varchar(100) unique not null , -- unique 중복 불가.
     join_date datetime default now() ,
     is_active bool default true,
     constraint primary key(member_id)
 );
-select * from members;
+select * from members; 	-- 특정 테이블 골라서 보기
+show tables; 			-- 테이블들 보기
 
 -- [문제 2]
 -- 아래 조건에 맞는 products 테이블을 생성하는 SQL을 작성하세요.
@@ -52,7 +58,8 @@ create table orders(
     total_price int unsigned not null ,
     constraint primary key(order_id),
     member_id int ,
-    constraint foreign key(member_id) references members(member_id) 
+    constraint foreign key(member_id) references members(member_id) on delete cascade on update cascade 
+																	-- 참조 중인 pk 레코드가 삭제/변경되면 fk값도 같이 변경된다.
 );
 select * from orders;
 
@@ -69,9 +76,9 @@ create table order_items(
 	item_id int auto_increment ,
     constraint primary key(item_id),
     order_id bigint ,
-    constraint foreign key(order_id) references orders(order_id) ,
+    constraint foreign key(order_id) references orders(order_id) on delete cascade on update cascade,
     product_id int ,
-    constraint foreign key(product_id) references products(product_id) ,
+    constraint foreign key(product_id) references products(product_id) on delete cascade on update cascade,
     quantity int default 1 ,
     price int unsigned not null
 );
@@ -131,7 +138,7 @@ create table boards(
     writer_id int,
     created_at datetime default now() ,
     constraint primary key(board_id) ,
-    constraint foreign key(writer_id) references members(member_id)
+    constraint foreign key(writer_id) references members(member_id) on delete cascade on update cascade
 );
 select*from boards;
 
@@ -151,8 +158,8 @@ create table comments(
     content varchar(300) not null ,
     created_at datetime default now() ,
     constraint primary key(comment_id),
-    constraint foreign key(board_id)references boards(board_id),
-    constraint foreign key(writer_id)references members(member_id)
+    constraint foreign key(board_id)references boards(board_id) on delete cascade on update cascade,
+    constraint foreign key(writer_id)references members(member_id) on delete cascade on update cascade
 );
 select*from comments;
 
@@ -172,7 +179,7 @@ create table payments(
     payment_method varchar(30) ,
     payment_date datetime default now() ,
     constraint primary key(payment_id),
-    constraint foreign key(order_id)references orders(order_id)
+    constraint foreign key(order_id)references orders(order_id)on delete cascade on update cascade
 );
 select*from payments;
 
@@ -190,9 +197,9 @@ create table reviews(
 	review_id int ,
     constraint primary key(review_id) ,
     product_id int ,
-    constraint foreign key(product_id)references products(product_id) ,
+    constraint foreign key(product_id)references products(product_id) on delete cascade on update cascade,
     member_id int ,
-    constraint foreign key(member_id)references members(member_id) ,
+    constraint foreign key(member_id)references members(member_id) on delete cascade on update cascade,
     rating tinyint unsigned not null ,
     review_text text ,
     created_at datetime default now()

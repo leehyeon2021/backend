@@ -8,6 +8,9 @@ public class Practice12 {
         1. name(문자열) 멤버 변수를 가진 Person 클래스를 만드세요.
         2. Person 클래스를 상속받는 Student 클래스를 만드세요. Student 클래스에는 studentId(정수) 멤버 변수를 추가하세요.
         3. main 함수에서 Student 객체를 생성하고, 상속받은 name과 자신의 studentId에 값을 저장한 뒤 모두 출력하세요.*/
+        class Person{
+
+        }
 
         /*[문제 2] 메소드 오버라이딩 (Method Overriding)
         1. "동물이 소리를 냅니다."를 출력하는 makeSound() 메소드를 가진 Animal 클래스를 만드세요.
