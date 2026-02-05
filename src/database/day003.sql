@@ -1,4 +1,4 @@
--- 조작어 배우기 --
+-- 조작어 , 연산자 --
 
 drop database if exists mydb0204;
 create database mydb0204;

@@ -134,7 +134,7 @@ SELECT title , price FROM books WHERE price > 20000;
 SELECT title, price, stock FROM books WHERE price >= 15000 AND stock >= 10;
 
 -- [문제 14] books 테이블에서 장르(genre)가 '컴퓨터' 또는 '경제' 인 도서의 title, genre를 조회하세요. (IN 연산자 사용)
-SELECT title , genre FROM books WHERE genre = '컴퓨터' OR genre = '경제';
+SELECT title , genre FROM books WHERE genre IN( '컴퓨터', '경제' );
 
 -- [문제 15] books 테이블에서 장르(genre)가 '소설'이 아닌 도서의 모든 정보를 조회하세요. (NOT 사용)
 SELECT * FROM books WHERE genre != '소설';
