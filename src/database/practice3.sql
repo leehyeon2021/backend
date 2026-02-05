@@ -1,5 +1,6 @@
 /*[실습] 제출용 */
 -- 대문자 사용하는게 관례래... 가독성이랑 운영체제문제 때문이래...
+set SQL_SAFE_UPDATES = 0;
 
 -- 아래 샘플 SQL 전체 실행 : ctrl+shift+enter
 DROP DATABASE IF EXISTS practice3;
@@ -26,7 +27,7 @@ CREATE TABLE orders (
     order_qty    INT NOT NULL,                   -- 주문수량
     order_date   DATE,                           -- 주문일
     CONSTRAINT PRIMARY KEY (order_id),         -- 기본키 제약조건
-    CONSTRAINT FOREIGN KEY (book_id) REFERENCES books(book_id) on update cascade on delete cascade -- 외래키 제약조건
+    CONSTRAINT FOREIGN KEY (book_id) REFERENCES books(book_id) on delete cascade -- 외래키 제약조건
 );
 
 -- 샘플 데이터 삽입
