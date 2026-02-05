@@ -36,14 +36,38 @@ public class Practice13 {
         swimmable.swimmable();
 
         // [6]
-        Duck duck = new Object();
+        Object duck = new Duck();
         if( duck instanceof Flyable){
-
-        } else if (duck instanceof Swimmable) {
-
+            ((Flyable) duck).fly();
+        }if (duck instanceof Swimmable) {
+            ((Swimmable)duck).swimmable();
         }
-    }
-}
+
+        // [7]
+        DataAccessObject dao = new OracleDao();
+        dao.save();
+        dao = new MySqlDao();
+        dao.save();
+
+        // [8]
+        Greeting g = new Greeting() {
+            @Override
+            public void welcome() {System.out.println("Greeting!");}
+        };
+        g.welcome();
+
+        // [9]
+        Television television = new Television();
+        television.turnOff();
+        television.turnOn();
+        television.setMute(true);
+
+        // [10]
+        System.out.println(Calculator.plus(10, 20));
+
+
+    }// main end
+}// class end
 
 
 
@@ -124,23 +148,51 @@ class Duck implements Flyable , Swimmable{ // 구현은 두 개 이상의 인터
 3. if문과 instanceof 연산자를 사용하여, 해당 객체가 Flyable 타입인지, Swimmable 타입인지 각각 확인하고,
 맞다면 해당 인터페이스 타입으로 강제 형변환하여 메소드를 호출하세요.*/
 
-
 /*[문제 7] 인터페이스를 이용한 객체 교체
 1. "데이터를 저장합니다."라는 추상 메소드 save()를 가진 DataAccessObject 인터페이스를 만드세요.
 2. DataAccessObject를 구현하여 각각 "Oracle DB에 저장", "MySQL DB에 저장"을 출력하는 OracleDao, MySqlDao 클래스를 만드세요.
 3. main 함수에서 DataAccessObject 타입의 변수 dao를 선언하세요.
 4. dao에 new OracleDao()를 대입하여 save()를 호출하고, 그 다음 new MySqlDao()를 대입하여 save()를 호출하여 DB가 쉽게 교체되는 것을 확인하세요.*/
+interface DataAccessObject{ void save(); }
+class OracleDao implements DataAccessObject{
+    @Override public void save() {System.out.println("Oracle DB에 저장");}
+}
+class MySqlDao implements DataAccessObject{
+    @Override public void save() {System.out.println("MySQL DB에 저장");}
+}
 
 /*[문제 8] 익명 구현 객체
 1. "환영합니다."를 출력하는 welcome() 추상 메소드를 가진 Greeting 인터페이스를 만드세요.
-2. main 함수에서, 별도의 클래스 파일을 만들지 않고, Greeting 인터페이스 타입의 변수를 선언하면서 익명 구현 객체를 생성하여 welcome() 메소드를 즉석에서 구현하고 호출하세요.
+2. main 함수에서, 별도의 클래스 파일을 만들지 않고, Greeting 인터페이스 타입의 변수를 선언하면서
+익명 구현 객체를 생성하여 welcome() 메소드를 즉석에서 구현하고 호출하세요.
 예] Greeting g = new Greeting() { ... }; */
+interface Greeting{
+    void welcome();
+}
 
 /*[문제 9] 디폴트 메소드 (Default Method)
-1.Device 인터페이스에, turnOn(), turnOff() 추상 메소드와 함께, public default void setMute(boolean mute) 디폴트 메소드를 추가하세요. 디폴트 메소드는 "무음 처리합니다."를 출력하도록 구현합니다.
+1.Device 인터페이스에, turnOn(), turnOff() 추상 메소드와 함께, public default void setMute(boolean mute) 디폴트 메소드를 추가하세요.
+디폴트 메소드는 "무음 처리합니다."를 출력하도록 구현합니다.
 2.Television 클래스가 Device를 구현하도록 하되, turnOn(), turnOff()만 오버라이딩하세요.
 3.main 함수에서 Television 객체를 생성하고, turnOn(), turnOff()와 함께 디폴트 메소드인 setMute()도 호출되는 것을 확인하세요 */
+interface Device{
+    void turnOn();
+    void turnOff();
+    public default void setMute(boolean mute){
+        System.out.println("무음 처리합니다.");
+    }
+}
+class Television implements Device{
+    @Override public void turnOn() {}
+    @Override public void turnOff() {}
+}
 
 /*[문제 10] 정적 메소드 (Static Method)
 1. Calculator 인터페이스를 만들고, 두 정수의 합을 반환하는 plus(int x, int y) 정적 메소드를 정의하세요.
-2. main 함수에서 Calculator 인터페이스를 구현하는 클래스나 객체를 만들지 않고, Calculator.plus(10, 20)과 같이 인터페이스 이름으로 직접 정적 메소드를 호출하여 결과를 출력하세요. */
+2. main 함수에서 Calculator 인터페이스를 구현하는 클래스나 객체를 만들지 않고,
+Calculator.plus(10, 20)과 같이 인터페이스 이름으로 직접 정적 메소드를 호출하여 결과를 출력하세요. */
+interface Calculator{
+    public static int plus(int x, int y) {
+        return x+y;
+    }
+}
