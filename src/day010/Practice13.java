@@ -13,12 +13,35 @@ public class Practice13 {
             // 사용자는 'Soundable만 앎. 사용자는 개로 연결해서 멍멍, 고양이로 연결해서 야옹 한다.
 
         // [2] 인터페이스 상수
+        System.out.println(RemoteControl.MAX_VOLUME);
+        System.out.println(RemoteControl.MIN_VOLUME);
+
+        // [3] 다형성 인터페이스 타입
+        Runnable runner = new Person();
+        runner.run(); // 사람이 달립니다.
+        runner = new Car();
+        runner.run(); // 차가 달립니다.
+
+        // [4] 다형성 매개변수
+        Sword sword = new Sword();
+        Gun gun = new Gun();
+        Character character = new Character();
+        character.useWeapon(sword);
+        character.useWeapon(gun);
 
         // [5] 다중 인터페이스 구현
-        Flyable flyable = new Duk(); // Duk 클래스가 flyable을 구현했기 때문에 가능. (다형성: 타입변환 가능. 업캐스트?)
-        Swimmable swimmable = new Duk(); // DuK 클래스가 Swimmable을 구현했기 대문에 가능. (다형성: 타입변환 가능)
+        Flyable flyable = new Duck(); // Duk 클래스가 flyable을 구현했기 때문에 가능. (다형성: 타입변환 가능. 업캐스트?)
+        Swimmable swimmable = new Duck(); // DuK 클래스가 Swimmable을 구현했기 대문에 가능. (다형성: 타입변환 가능)
         flyable.fly(); // flyable.swimmable(); 안 됨. 형제니까~~
         swimmable.swimmable();
+
+        // [6]
+        Duck duck = new Object();
+        if( duck instanceof Flyable){
+
+        } else if (duck instanceof Swimmable) {
+
+        }
     }
 }
 
@@ -44,7 +67,8 @@ class Dog implements Soundable{
 2. 이 인터페이스 안에, public static final로 최대 볼륨 MAX_VOLUME = 10과 최소 볼륨 MIN_VOLUME = 0 상수를 정의하세요.
 3. main 함수에서 객체를 생성하지 않고, RemoteControl.MAX_VOLUME과 같이 인터페이스 이름으로 직접 접근하여 두 상수를 출력하세요.*/
 interface RemoteControl{
-
+    public static final int MAX_VOLUME = 10;
+    public static final int MIN_VOLUME = 0;
 }
 
 /*[문제 3] 다형성: 인터페이스 타입 변환
@@ -52,12 +76,27 @@ interface RemoteControl{
 2. Runnable을 구현하여 각각 "사람이 달립니다.", "자동차가 달립니다."를 출력하는 Person 클래스와 Car 클래스를 만드세요.
 3. main 함수에서 Runnable 타입의 변수 runner를 선언하세요.
 4. runner 변수에 new Person()을 대입하여 run() 메소드를 호출하고, 그 다음 new Car()를 대입하여 run() 메소드를 호출하여 결과가 다르게 나오는 것을 확인하세요.*/
+interface Runnable{ public abstract void run();}
+class Person implements Runnable{
+    public void run(){System.out.println("사람이 달립니다.");}
+}
+class Car implements Runnable{
+    public void run(){System.out.println("차가 달립니다.");}
+}
 
 /*[문제 4] 다형성을 활용한 매개변수
 1. "공격!"이라는 추상 메소드 attack()을 가진 Attackable 인터페이스를 정의하세요.
 2. Attackable을 구현하는 Sword 클래스와 Gun 클래스를 만드세요.
 3. Attackable 타입의 객체를 매개변수로 받아, 해당 객체의 attack() 메소드를 호출하는 Character 클래스와 useWeapon(Attackable weapon) 메소드를 만드세요.
 4. main 함수에서 Sword 객체와 Gun 객체를 생성한 뒤, 이 객체들을 Character의 useWeapon() 메소드에 인자로 전달하여 동작을 확인하세요.*/
+interface Attackable{ public abstract void attack(); }
+class Sword implements Attackable{ public void attack(){System.out.println("[검]");};}
+class Gun implements Attackable{ public void attack(){System.out.println("[총]");};}
+class Character{
+    void useWeapon(Attackable weapon){
+        weapon.attack();
+    }
+}
 
 /*[문제 5] 다중 인터페이스 구현
 1. "하늘을 납니다."를 출력하는 fly() 추상 메소드를 가진 Flyable 인터페이스를 만드세요.
@@ -66,7 +105,7 @@ interface RemoteControl{
 4. main 함수에서 Duck 객체를 생성하고, fly()와 swimmable() 메소드를 모두 호출하여 결과를 확인하세요.*/
 interface Flyable{ void fly(); } // public abstract 생략 가능
 interface Swimmable{ void swimmable(); }
-class Duk implements Flyable , Swimmable{ // 구현은 두 개 이상의 인터페이스가 가능하다.
+class Duck implements Flyable , Swimmable{ // 구현은 두 개 이상의 인터페이스가 가능하다.
     // 우클릭 -> 생성 -> 메소드 구현 --> 오버라이딩 자동 가능~
     @Override
     public void fly() {
@@ -82,7 +121,9 @@ class Duk implements Flyable , Swimmable{ // 구현은 두 개 이상의 인터�
 /*[문제 6] instanceof와 인터페이스
 1. 문제 5에서 만든 Flyable, Swimmable 인터페이스와 Duck 클래스를 활용합니다.
 2. main 함수에서 Duck 객체를 생성하고, Object 타입의 변수에 저장하세요.
-3. if문과 instanceof 연산자를 사용하여, 해당 객체가 Flyable 타입인지, Swimmable 타입인지 각각 확인하고, 맞다면 해당 인터페이스 타입으로 강제 형변환하여 메소드를 호출하세요.*/
+3. if문과 instanceof 연산자를 사용하여, 해당 객체가 Flyable 타입인지, Swimmable 타입인지 각각 확인하고,
+맞다면 해당 인터페이스 타입으로 강제 형변환하여 메소드를 호출하세요.*/
+
 
 /*[문제 7] 인터페이스를 이용한 객체 교체
 1. "데이터를 저장합니다."라는 추상 메소드 save()를 가진 DataAccessObject 인터페이스를 만드세요.
