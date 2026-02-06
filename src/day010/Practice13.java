@@ -178,7 +178,7 @@ interface Greeting{
 interface Device{
     void turnOn();
     void turnOff();
-    public default void setMute(boolean mute){
+    public default void setMute(boolean mute){ // 디폴트 메소드: interface가 구현한 메소드
         System.out.println("무음 처리합니다.");
     }
 }
