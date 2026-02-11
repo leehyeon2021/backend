@@ -2,6 +2,7 @@ package day013;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.UUID;
 
 public class Exam3 {
     public static void main(String[] args) {
@@ -36,9 +37,19 @@ public class Exam3 {
             code += ch; // 인증코드에 연결.
         }
         System.out.println("code = " + code);/*
-           - 활용처3: 주사위/추천번호 생성        */
+           - 활용처3: 주사위/추천번호 생성
 
-
+        2. UUID: 범용 고유 식별자  */
+        String uuid = UUID.randomUUID().toString();
+        System.out.println("uuid = " + uuid);   /* uuid = 2bf42a50-6f70-4397-a963-597f1426b4c0
+           - 장점
+             - 중복될 확률이 거의 없다.
+             - 랜덤 기반 식별자 (계속 바뀐다.)
+           - 사용처
+           : 데이터베이스 PK , 파일명 , 로그인세션(Token) 등등
+             - (mysql) auto_increment : 1 2 3 4 5 순으로 증가한다. 그래서 가벼운데 노출이 쉽다.
+             - UUID : 난수이므로 무겁고 노출이 어렵다. < 보안 >
+        */
 
 
     }
