@@ -28,7 +28,7 @@ select * from table1, table2; -- 25개. 하나의 레코드가 다른 테이블�
 
 # 2. 교집합/내부조인(INNER JOIN): 두 테이블 간의 공통된 값 기준으로 레코드 조회
 # 2-1) where절 이용한 pk속성값과 fk속성값이 같으면 교집합 구할 수 있음. -- 일반 조건과 구분이 어렵기 때문에 권장하진 않는다.
-select*from table1 , table2 where table1.num_pk = table2.num_fk; -- 5개. 교집합. 
+select*from table1 , table2 where table1.num_pk = table2.num_fk; -- 5개. 교집합. 실무 사용 불가능.
 # 2-2) inner join on 절: `from 테이블명A inner join 테이블B on 테이블명A.pk속성명 = 테이블명B.FK속성명` -- 표준.
 select*from table1 inner join table2 on table1.num_pk = table2.num_fk;
 -- select*from table1 inner join table2 inner join table3 on table1.num_pk = table2.num_fk; -- inner join 더 써도 됨.

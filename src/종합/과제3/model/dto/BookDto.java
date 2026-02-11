@@ -57,14 +57,14 @@ public class BookDto {
         this.mno = mno;
     }
 
-    @Override
-    public String toString() {
-        return "BookDto{" +
-                "bno=" + bno +
-                ", bname='" + bname + '\'' +
-                ", bw='" + bw + '\'' +
-                ", bp='" + bp + '\'' +
-                ", mno=" + mno +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "BookDto{" +
+//                "bno=" + bno +
+//                ", bname='" + bname + '\'' +
+//                ", bw='" + bw + '\'' +
+//                ", bp='" + bp + '\'' +
+//                ", mno=" + mno +
+//                '}';
+//    }
 }
