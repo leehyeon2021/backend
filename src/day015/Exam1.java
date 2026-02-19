@@ -19,6 +19,7 @@ public class Exam1 {
 
         3. 사용법
         : `클래스명< 타입1 , 타입2 > 변수명;`
+           - 클래스 정의
         ```
         class 클래스명< 제네릭타입1 , 제네릭타입2 >{
 
@@ -26,6 +27,11 @@ public class Exam1 {
             void 함수명( 제네릭타입2 매개변수명 ){ }
 
         }
+        ```
+           - 인스턴스 생성
+        ```
+        클래스명< 타입명 > 변수명 = new 생성자명<>();
+        클래스명< 타입명A, 타입명B > 변수명 = new 생성자명<>();
         ```
            - 제네릭 타입명은 영문 대문자로 한다.
            - 여러 개 가능하다.
@@ -57,7 +63,7 @@ public class Exam1 {
         int content33 = box33.content;
         /*```
               - 클래스 만들 때 타입 정한 게 아니라 인스턴스 만들 때 정한 타입으로 결정.
-              - 대표 예
+              - 대표 활용처 예시
                 : ArrayList 컬렉션 프레임워크 `ArrayList<>`
         ```*/
         ArrayList< String > list1 = new ArrayList<>();
