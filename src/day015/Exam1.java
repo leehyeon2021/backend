@@ -110,3 +110,18 @@ class 내가만든리스트1< E >{
         content = (E)new Object[10];
     }
 }
+
+/*
+> - 참고
+<table>
+  <thead>
+    <tr> <th>알파벳</th><th>의미</th><th>풀이</th> </tr>
+  </thead>
+  <tbody>
+    <tr> <td>T</td><td>Type</td><td>일반적인 타입</td> </tr>
+    <tr> <td>E</td><td>Element</td><td>리스트 같은 컬렉션 내부의 요소</td> </tr>
+    <tr> <td>K</td><td>Key</td><td>맵(Map)의 키</td> </tr>
+    <tr> <td>V</td><td>Value</td><td>맵(Map)의 값</td> </tr>
+  </tbody>
+</table>
+ */
