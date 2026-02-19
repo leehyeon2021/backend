@@ -7,7 +7,7 @@ public class Exam2 {
         /* ***
         ## 컬렉션 프레임 워크
         ***
-        ### 1️⃣2⃣컬렉션 프레임 워크
+        ### 1️⃣ 컬렉션 프레임 워크
 
         1. 정의
         : 자료들을 수집/저장하는 방법들을 미리 만들어둔 인터페이스/클래스.
@@ -70,31 +70,30 @@ public class Exam2 {
         ```
         list2.clear();
         ```
-        ***
-        - (위랑 이어서 하는 거긴 한데 새로운 거 배운다고 하셔서 따로 분리함)
-        ### 2️⃣ List 타입과 반복문
-        1. 일반 for문
-        ``` */
-        for( int index = 0 ; index <= list2.size()-1 ; index++ ){
-            System.out.println( list2. get( index ) );
-        }
-        /*```
-        2. 향상된 for문
-        ```         */
-        for( String str : list2 ){
-            System.out.println( str );
-        }
-        /*```
-        3. forEach문 ⭐
-        : 리스트 내 요소(값)들을 하나씩 순서대로 반복변수에 대입하여 반복실행한다.
-           - `변수명.forEach( ( 반복변수 ) -> { 실행문; } );`
-              - '람다 표현식'이라고 한다. (저번에 재미나이가 알려준 함수 축약? 그런 건가 봄)
-              - Spring에서 이거 사용한대
-        ``` */
-        list2.forEach( (반복변수명) -> { System.out.println( 반복변수명 ); } );
-        /*```
 
-        ***
+        >***
+        >- List 타입과 반복문
+        >   1. 일반 for문
+        >```
+        >for( int index = 0 ; index <= list2.size()-1 ; index++ ){
+        >    System.out.println( list2. get( index ) );
+        >}
+        >```
+        >   2. 향상된 for문
+        >```
+        >for( String str : list2 ){
+        >    System.out.println( str );
+        >}
+        >```
+        >   3. forEach문 ⭐
+        >: 리스트 내 요소(값)들을 하나씩 순서대로 반복변수에 대입하여 반복실행한다.
+        >      - `변수명.forEach( ( 반복변수 ) -> { 실행문; } );`
+        >         - '람다 표현식'이라고 한다. (저번에 재미나이가 알려준 함수 축약? 그런 건가 봄)
+        >         - Spring에서 이거 사용한대
+        >```
+        >list2.forEach( (반복변수명) -> { System.out.println( 반복변수명 ); } );
+        >```
+        >***
 
         ### List 구현체들
         - 구현체

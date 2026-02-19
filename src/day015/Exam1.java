@@ -112,7 +112,7 @@ class 내가만든리스트1< E >{
 }
 
 /*
-> - 참고
+> - 용어 참고
 <table>
   <thead>
     <tr> <th>알파벳</th><th>의미</th><th>풀이</th> </tr>
