@@ -82,20 +82,13 @@ public class Practice17 {
             jsonMap.put( strAry[0].replaceAll("\"","") , strAry[1].replaceAll("\"","") );
                 // - 큰따옴표 제거.
         }
+        System.out.println("jsonMap = " + jsonMap); // 헷갈릴 때: 중괄호-> 순서 없 , 대괄호-> 순서 있
         System.out.println("[name] "+jsonMap.get("name"));
         System.out.println("[age] "+jsonMap.get("age"));
         System.out.println("[all]");
         jsonMap.keySet().forEach(key -> {
             System.out.println(key+" = "+jsonMap.get(key));
         });
-        /*
-        [all]
-        city = 서울
-        name = 유재석
-        age = 45
-        왜 이렇게 나오지?!??????
-         */
-
 
         // [8] Dto보다는 Map을 사용한다.
         ArrayList< Map< String, Object > > stockList = new ArrayList<>();
