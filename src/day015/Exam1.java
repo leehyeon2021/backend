@@ -46,6 +46,7 @@ public class Exam1 {
         box1.content = "안녕하세요";          // 멤버변수에 대입
         String content1 = box1.content;     // 멤버변수 값 호출
 
+
         Box2 box2 = new Box2();
         box2.content = 100;
         int content2 = box2.content;
