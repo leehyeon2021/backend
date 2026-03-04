@@ -1,5 +1,8 @@
 package day014;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Practice16 {
     public static void main(String[] args) {
 
@@ -35,6 +38,10 @@ public class Practice16 {
         }
         System.out.println("[최종] total = " + cart.total + " / 예상= 1500");
 
+
+        // [3]
+        ExecutorService pool = Executors.newFixedThreadPool(3);
+        //안 됨 !
 
     }
 }
@@ -136,3 +143,10 @@ Thread.sleep(2000);
         [처리완료] 문의 1
         [처리완료] 문의 2
         [처리완료] 문의 3*/
+class InquiryTask implements Runnable{
+    @Override public void run(){
+        try{
+            Thread.sleep(2000);
+        }catch (Exception e){System.out.println(e);}
+    }
+}
