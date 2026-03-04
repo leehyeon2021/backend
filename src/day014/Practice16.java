@@ -5,18 +5,40 @@ public class Practice16 {
 
         // [1]
         DeliveryTask deliveryTask = new DeliveryTask();
-        Thread thread1 = new Thread( deliveryTask );
+        Thread thread1 = new Thread(deliveryTask);
         thread1.start();
 
-        for(int i=1;i<=3;i++){
-            System.out.println("[메인] 주문 화면 갱신"+i);
-
+        try {
+            for (int i = 1; i <= 3; i++) {
+                System.out.println("[메인] 주문 화면 갱신" + i);
+                Thread.sleep(1000);
+            }
+            thread1.join();
+        } catch (Exception e) {
+            System.out.println(e);
         }
+        System.out.println("[안내] 배달 처리 종료");
+
+        // [2]
+        Cart cart = new Cart();
+        UserAThread userA = new UserAThread();
+        userA.cart = cart;
+        UserBThread userB = new UserBThread();
+        userB.cart = cart;
+        userA.start();
+        userB.start();
+        try {
+            userA.join();
+            userB.join();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        System.out.println("[최종] total = " + cart.total + " / 예상= 1500");
 
 
     }
-
 }
+
 /*[문제 1] 배달 진행 + 화면 갱신 “동시 실행” 구현
 상황: 배달 진행(작업 스레드)과 주문 화면 갱신(메인 스레드)이 동시에 돌아야 한다.
 요구사항(구현)
@@ -41,12 +63,12 @@ main에서는 DeliveryTask를 작업 스레드로 실행한다. (start() 사용)
         [안내] 배달 처리 종료*/
 class DeliveryTask implements Runnable{
     @Override public void run() {
-        for(int i=1;i<=3;i++){
-            System.out.println("[배달기사] 이동중"+i);
-            try{
+        try{
+            for(int i=1;i<=3;i++){
+                System.out.println("[배달기사] 이동 중"+i);
                 Thread.sleep( 1000 );
-            }catch (Exception e){}
-        }
+            }
+        }catch (Exception e){System.out.println(e);}
     }
 }
 
@@ -69,7 +91,28 @@ UserBThread는 addPrice(200)을 5번 호출한다.
         [장바구니] 추가금액=200, 현재총액=300
         ...
         [최종] total=1500 / 예상=1500*/
-
+class Cart{
+    int total;
+    public synchronized void addPrice(int price){
+        total+= price;
+        try {
+            Thread.sleep(500);
+        }catch (Exception e){System.out.println(e);}
+        System.out.println("[장바구니] 추가금액 = "+price+", 현재총액 = "+total);
+    }
+}
+class UserAThread extends Thread{
+    public Cart cart;
+    @Override public void run(){
+        for(int i=1;i<=5;i++){cart.addPrice(100);}
+    }
+}
+class UserBThread extends Thread{
+    public Cart cart;
+    @Override public void run(){
+        for(int i=1;i<=5;i++){cart.addPrice(200);}
+    }
+}
 
 /*[문제 3] 고객 문의 처리 시스템 구현 (스레드풀)
 상황: 고객 문의 10건을 처리하는데, 동시에 최대 3건까지만 처리하도록 제한한다.
