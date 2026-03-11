@@ -2,6 +2,7 @@ package day014;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Practice16 {
     public static void main(String[] args) {
@@ -36,13 +37,21 @@ public class Practice16 {
         } catch (Exception e) {
             System.out.println(e);
         }
-        System.out.println("[최종] total = " + cart.total + " / 예상= 1500");
+        System.out.printf("[최종] total = %d / 예상= 1500\n", cart.total);
 
 
         // [3]
         ExecutorService pool = Executors.newFixedThreadPool(3);
-        //안 됨 !
-
+        for(int i=1;i<=10;i++){
+            InquiryTask inquiryTask = new InquiryTask();
+            inquiryTask.inquiry = i;
+            pool.submit(inquiryTask);
+        }
+        pool.shutdown();
+        try {
+            pool.awaitTermination( 30 , TimeUnit.SECONDS);
+        }catch (Exception e){System.out.println(e);}
+        System.out.println("[안내]모든 문의 처리 종료");
     }
 }
 
@@ -144,9 +153,12 @@ Thread.sleep(2000);
         [처리완료] 문의 2
         [처리완료] 문의 3*/
 class InquiryTask implements Runnable{
+    int inquiry;
     @Override public void run(){
         try{
+            System.out.printf("[처리시작] 문의 %d | 스레드 = %s\n", inquiry, Thread.currentThread().getName());
             Thread.sleep(2000);
+            System.out.printf( "[처리완료]문의%d | 스레드 = %s\n", inquiry, Thread.currentThread().getName());
         }catch (Exception e){System.out.println(e);}
     }
 }

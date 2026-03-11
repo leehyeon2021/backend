@@ -20,7 +20,7 @@ public class Exam3 {
              - 순서 상관 없이 제조가 먼저 완료된 음료를 손님에게 준다.
 
          4. 사용법
-            - synchronized 타입명 메소드명(){}
+            - `synchronized 타입명 메소드명(){}`
             : synchronized는 멀티스레드, 채팅에서 사용.
             +) 채팅?: 몇 백명이 들어왔을 때 동시 처리하면 안전성 떨어진다. 대량 데이터 처리에서는 synchronized를 사용하여 안전 순서를 지키기.
 
