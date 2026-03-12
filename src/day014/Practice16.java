@@ -14,21 +14,17 @@ public class Practice16 {
 
         try {
             for (int i = 1; i <= 3; i++) {
-                System.out.println("[메인] 주문 화면 갱신" + i);
                 Thread.sleep(1000);
+                System.out.println("[메인] 주문 화면 갱신" + i);
             }
-            thread1.join();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        } catch (Exception e) {System.out.println(e);}
+        try{thread1.join();}catch (Exception e) {System.out.println(e);}
         System.out.println("[안내] 배달 처리 종료");
 
         // [2]
         Cart cart = new Cart();
-        UserAThread userA = new UserAThread();
-        userA.cart = cart;
-        UserBThread userB = new UserBThread();
-        userB.cart = cart;
+        UserAThread userA = new UserAThread();        userA.cart = cart;
+        UserBThread userB = new UserBThread();        userB.cart = cart;
         userA.start();
         userB.start();
         try {
@@ -44,12 +40,12 @@ public class Practice16 {
         ExecutorService pool = Executors.newFixedThreadPool(3);
         for(int i=1;i<=10;i++){
             InquiryTask inquiryTask = new InquiryTask();
-            inquiryTask.inquiry = i;
+            inquiryTask.inquiry = i; // -> 몇 번째 문의인지 기록
             pool.submit(inquiryTask);
         }
-        pool.shutdown();
+        pool.shutdown(); // -> 이미 들어온 거 빼고 더 안 받음
         try {
-            pool.awaitTermination( 30 , TimeUnit.SECONDS);
+            pool.awaitTermination( 30 , TimeUnit.SECONDS); // -> 하던 거 할 떄까지 30초는 기다려줌
         }catch (Exception e){System.out.println(e);}
         System.out.println("[안내]모든 문의 처리 종료");
     }
@@ -81,8 +77,8 @@ class DeliveryTask implements Runnable{
     @Override public void run() {
         try{
             for(int i=1;i<=3;i++){
-                System.out.println("[배달기사] 이동 중"+i);
                 Thread.sleep( 1000 );
+                System.out.println("[배달기사] 이동 중"+i);
             }
         }catch (Exception e){System.out.println(e);}
     }
@@ -153,12 +149,12 @@ Thread.sleep(2000);
         [처리완료] 문의 2
         [처리완료] 문의 3*/
 class InquiryTask implements Runnable{
-    int inquiry;
+    int inquiry; // -> 몇 번째 문의세요?
     @Override public void run(){
         try{
-            System.out.printf("[처리시작] 문의 %d | 스레드 = %s\n", inquiry, Thread.currentThread().getName());
+            System.out.printf("[%s] [처리시작] 문의 %d | 스레드 = %s\n",java.time.LocalTime.now(), inquiry, Thread.currentThread().getName()); // currentThread(): 지금 실행하는 스레드 객체 반환
             Thread.sleep(2000);
-            System.out.printf( "[처리완료]문의%d | 스레드 = %s\n", inquiry, Thread.currentThread().getName());
+            System.out.printf( "[%s] [처리완료]문의%d | 스레드 = %s\n",java.time.LocalTime.now(), inquiry, Thread.currentThread().getName());
         }catch (Exception e){System.out.println(e);}
     }
 }
